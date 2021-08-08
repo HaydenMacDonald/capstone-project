@@ -11,17 +11,19 @@ library(squashinformr)
 library(here)
 library(glue)
 library(readr)
+library(lubridate)
 ```
 
 ```{r}
-df <- get_tournaments(year = 2021)
+today_year <- year(today())
+df <- get_tournaments(year = today_year)
 ```
 
 ```{r}
 games <- NULL
 
 for (tournament in unique(df$name)) {
-  results <- get_tournament_games(tournament = tournament, year = 2021, world_tour = TRUE)
+  results <- get_tournament_games(tournament = tournament, year = today_year, world_tour = TRUE)
   games <- bind_rows(games, results)
 }
 
@@ -30,6 +32,6 @@ games
 
 ## Export csv
 ```{r}
-write_csv(games, glue("{here::here()}/games_data.csv"))
+write_csv(games, glue("{here::here()}/games_data-{today_year}.csv"))
 ```
 
