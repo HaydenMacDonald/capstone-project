@@ -1,0 +1,35 @@
+---
+title: "data-scraping"
+author: "Hayden MacDonald"
+date: "08/08/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(squashinformr)
+library(here)
+library(glue)
+library(readr)
+```
+
+```{r}
+df <- get_tournaments(year = 2021)
+```
+
+```{r}
+games <- NULL
+
+for (tournament in unique(df$name)) {
+  results <- get_tournament_games(tournament = tournament, year = 2021, world_tour = TRUE)
+  games <- bind_rows(games, results)
+}
+
+games
+```
+
+## Export csv
+```{r}
+write_csv(games, glue("{here::here()}/games_data.csv"))
+```
+
