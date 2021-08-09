@@ -54,6 +54,13 @@ po/*~
 
 # End of https://www.toptal.com/developers/gitignore/api/r
 
+## Config files
+*.cfg
+
+
+## CSVs
+*.csv
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
