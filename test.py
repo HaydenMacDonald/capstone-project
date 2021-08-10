@@ -1,6 +1,6 @@
 import configparser
 import psycopg2
-from helpers import TestQueries
+from helpers.test_queries import TestQueries
 
 
 def test_tables(cur):
@@ -12,11 +12,11 @@ def test_tables(cur):
     ## Create error_count
     error_count = 0
 
-    for check in test_table_queries:
+    for attr in test_table_queries:
+        check = getattr(TestQueries, attr)
         query = check.get('query')
         expected = check.get('expected')
         cur.execute(query)
-        cur.execute()
         results = cur.fetchall()
 
         if expected != results[0][0]:
