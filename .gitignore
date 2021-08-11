@@ -59,7 +59,7 @@ po/*~
 
 
 ## CSVs
-*.csv
+data/csgo-data/actual-data/*.csv
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
