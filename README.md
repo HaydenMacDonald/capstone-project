@@ -24,7 +24,7 @@ Since the scope of the project will be highly dependent on the data, these two t
 ## Step 4: Run ETL to Model the Data
 * Create the data pipelines and the data model
 * Include a data dictionary
-	- Please see the [data dictionary]().
+	- Please see the [data dictionary](https://github.com/HaydenMacDonald/capstone-project/blob/main/documentation/data-dictionary.md).
 * Run data quality checks to ensure the pipeline ran as expected
 	- Integrity constraints on the relational database (e.g., unique key, data type, etc.)
 	- Unit tests for the scripts to ensure they are doing the right thing
@@ -38,6 +38,7 @@ Since the scope of the project will be highly dependent on the data, these two t
 	- I chose this particular model because rounds are the most central aspect of any game of CS:GO. Winning rounds results in won matches and are essential to understanding how players and teams play the game. Therefore, I chose this model to optimize query performance on rounds data.
 * Clearly state the rationale for the choice of tools and technologies for the project.
 	- The choice of a python script as an ETL tool was used to keep maintenance and debugging as simple as possible. Redshift was chosen as it was suitably powerful to store the data, given its size in raw form.
+	- Please see the [data model diagram](https://github.com/HaydenMacDonald/capstone-project/blob/main/documentation/data-model.PNG) for more detail on the schema structure.
 * Propose how often the data should be updated and why.
 	- In a real world setting where records of the original data set are being generated every hour, it would be best for this ETL process to be run on the hour, every hour in order to provide analysts and product features with recent and relevant data.
 * If the data was increased by 100x, I would choose a more powerful Redshift cluster configuration and refactor the ETL process as Airflow DAGs for more robust debugging and monitoring.
